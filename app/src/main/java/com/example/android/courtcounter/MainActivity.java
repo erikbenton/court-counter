@@ -7,13 +7,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int teamAScore = 0;
-    int teamBScore = 0;
+    int teamAScore = 5;
+    int teamBScore = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        displayForTeamA(teamAScore);
+        displayForTeamB(teamBScore);
     }
 
     private void displayForTeamA(int score)
@@ -38,5 +40,29 @@ public class MainActivity extends AppCompatActivity {
     {
         teamAScore += 1;
         displayForTeamA(teamAScore);
+    }
+
+    private void displayForTeamB(int score)
+    {
+        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
+        scoreView.setText(String.valueOf(score));
+    }
+
+    public void twoPointTeamB(View view)
+    {
+        teamBScore += 2;
+        displayForTeamB(teamBScore);
+    }
+
+    public void threePointTeamB(View view)
+    {
+        teamBScore += 3;
+        displayForTeamB(teamBScore);
+    }
+
+    public void freeThrowTeamB(View view)
+    {
+        teamBScore += 1;
+        displayForTeamB(teamBScore);
     }
 }
